@@ -27,3 +27,13 @@ body {
     height: 95%;
     background: #fff;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-sx {
+    background-color: rebeccapurple;
+    width: 275px;
+}
