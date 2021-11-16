@@ -8,6 +8,14 @@
 }
 
 
+/*utilities*/
+
+.img-sizing {
+    width: 70px;
+    border-radius: 100%;
+}
+
+
 /*background creation*/
 
 body {
@@ -34,6 +42,5 @@ body {
 }
 
 .col-sx {
-    background-color: rebeccapurple;
-    width: 275px;
+    width: 350px;
 }
