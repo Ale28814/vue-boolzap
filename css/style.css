@@ -17,6 +17,10 @@
     margin: 10px 0 10px 10px;
 }
 
+.mg-16 {
+    margin: 16px;
+}
+
 
 /*background creation*/
 
@@ -37,6 +41,9 @@ body {
     height: 95%;
     background: #fff;
 }
+
+
+/*aside section*/
 
 .row {
     display: flex;
@@ -60,10 +67,6 @@ body {
     display: flex;
     flex-direction: row;
     width: 50%;
-}
-
-.box-sx h3 {
-    margin: 16px;
 }
 
 .box-dx {
@@ -95,4 +98,25 @@ body {
     height: 40px;
     margin: 8px 8px 8px 8px;
     background-color: #fbfbfb;
+}
+
+.friends {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.contact {
+    border-bottom: 1px solid rgb(231, 226, 226);
+    display: flex;
+    flex-direction: row;
+}
+
+.contact:last-child {
+    border-bottom: none;
+}
+
+.contact:hover {
+    background-color: rgb(231, 226, 226);
+    ;
 }

@@ -6,7 +6,7 @@ const root = new Vue({
     data: {
         myContact: {
             name: 'Sandro',
-            avatar: ''
+            avatar: 'img/avatar_leoni.jpg'
         },
         contacts: [{
                 name: 'Michele',

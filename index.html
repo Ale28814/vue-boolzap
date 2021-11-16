@@ -27,8 +27,8 @@
                 <!--header sx-->
                 <div class="contact-header">
                     <div class="box-sx">
-                        <img src="img/avatar_leoni.jpg" class="img-sizing" alt="me">
-                        <h3>Sandro</h3>
+                        <img :src="myContact.avatar" class="img-sizing" alt="me">
+                        <h3 class="mg-16">{{myContact.name}}</h3>
                     </div>
                     <div class="box-dx">
                         <i class="fas fa-circle-notch"></i>
@@ -51,7 +51,12 @@
                 </div>
 
                 <!--contact list-->
-
+                <div class="friends">
+                    <div class="contact" v-for="(contact, index) in contacts">
+                        <img :src="contact.avatar" class="img-sizing" :alt="contact.name">
+                        <h3 class="mg-16">{{contact.name}}</h3>
+                    </div>
+                </div>
             </div>
             <!--right column-->
             <div class=" col-dx "></div>
