@@ -1,16 +1,18 @@
 /*boolzapp*/
 
 //array obj creation
-const root = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
-        myContact: {
-            name: 'Sandro',
-            avatar: 'img/avatar_leoni.jpg'
+        newMessage: "",
+        activeChat: 0,
+        user: {
+            nameUser: 'Sandro',
+            avatar: '_leoni'
         },
         contacts: [{
                 name: 'Michele',
-                avatar: 'img/avatar_1.jpg',
+                avatar: '_1',
                 visible: true,
                 messages: [{
                         date: '10/01/2020 15:30:55',
@@ -31,7 +33,7 @@ const root = new Vue({
             },
             {
                 name: 'Fabio',
-                avatar: 'img/avatar_2.jpg',
+                avatar: '_2',
                 visible: true,
                 messages: [{
                         date: '20/03/2020 16:30:00',
@@ -51,7 +53,7 @@ const root = new Vue({
                 ],
             }, {
                 name: 'Samuele',
-                avatar: 'img/avatar_3.jpg',
+                avatar: '_3',
                 visible: true,
                 messages: [{
                         date: '28/03/2020 10:10:40',
@@ -72,7 +74,7 @@ const root = new Vue({
             },
             {
                 name: 'Luisa',
-                avatar: 'img/avatar_4.jpg',
+                avatar: '_4',
                 visible: true,
                 messages: [{
                         date: '10/01/2020 15:30:55',
@@ -86,7 +88,77 @@ const root = new Vue({
                     }
                 ],
             },
-        ]
+        ],
+        lastAcces: dayjs().format('HH:mm'),
 
-    }
+        answers: ['ok', 'pota!', 'lè semper lù!', 'Vi torna la situation?'],
+    },
+    created() {
+
+        dayjs();
+    },
+
+    methods: {
+
+        randomNumber() {
+            return number = Math.floor(Math.random() * this.answers.length);
+        },
+
+        currentChat(i) {
+
+            this.activeChat = i;
+
+            this.addScroll();
+        },
+
+        sendMessage() {
+            const message = this.newMessage;
+
+
+            if (message !== '') {
+
+                const newMessage = {
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                    text: message,
+                    status: 'sent',
+                }
+
+                this.contacts[this.activeChat].messages.push(newMessage);
+                console.log(this.randomNumber());
+
+                this.addScroll();
+
+                setTimeout(() => {
+
+                    const newMessageReceived = {
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                        text: this.answers[this.randomNumber()],
+                        status: 'received',
+                    }
+
+                    this.contacts[this.activeChat].messages.push(newMessageReceived);
+
+
+                    this.addScroll();
+                }, 2000);
+
+                this.newMessage = '';
+
+                this.$refs.messInput.focus();
+            }
+        },
+
+        addScroll() {
+
+            setTimeout(() => {
+
+                this.$refs.scroll.scrollTop = this.$refs.scroll.scrollHeight;
+            }, 1);
+        },
+
+        downMenuChat() {
+            this.$refs.menuChat.classList.toggle('spownNone');
+        }
+
+    },
 })
