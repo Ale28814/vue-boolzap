@@ -158,7 +158,26 @@ const app = new Vue({
 
         downMenuChat() {
             this.$refs.menuChat.classList.toggle('spownNone');
-        }
+        },
 
+        search() {
+
+            const searchName = this.nameSearch.toLowerCase();
+            console.log(searchName);
+
+            this.contacts.forEach(contact => {
+
+                const nameContact = contact.name.toLowerCase();
+
+                if (nameContact.includes(searchName)) {
+
+                    contact.visible = true;
+                } else {
+
+                    contact.visible = false;
+                }
+            });
+
+        },
     },
 })
